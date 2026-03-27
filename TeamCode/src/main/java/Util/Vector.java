@@ -11,8 +11,8 @@ import static java.lang.Math.*;
  */
 public class Vector {
 
-    private double x;
-    private double y;
+    public double x;
+    public double y;
     public Vector() {
         this(0.0, 0.0);
     }
