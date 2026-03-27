@@ -145,11 +145,12 @@ public class Pose {
         );
     }
 
-    // Rotation (FIXED bug here)
+    // Rotation
     public Pose rotate(double theta) {
         return rotate(theta, theta);
     }
 
+    //rotate a pose
     public Pose rotate(double theta, double headingTheta) {
         double newX = x * cos(theta) - y * sin(theta);
         double newY = x * sin(theta) + y * cos(theta);
@@ -178,6 +179,10 @@ public class Pose {
         return distanceFrom(other) < threshold;
     }
 
+    /**
+     * duplicate a pose
+     * @return copied pose
+     */
     public Pose copy() {
         return new Pose(x, y, heading);
     }

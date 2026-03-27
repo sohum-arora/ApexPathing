@@ -49,6 +49,13 @@ public class MecanumDrive extends Drivetrain{
      * @param strafe the power to strafe
      * @param turn the power to turn
      */
+
+    /**
+     * sets the calculated powers of each motor
+     * @param drive power to drive forward
+     * @param strafe power to strafe
+     * @param turn power to turn
+     */
     public void setPowers(double drive, double strafe, double turn){
         double [] powers = calculatePower(drive, strafe, turn);
         lf.setPower(powers[0]);
@@ -73,6 +80,13 @@ public class MecanumDrive extends Drivetrain{
         //return
         return  calculatedPowers;
     }
+
+    /**
+     * robot centric drive
+     * @param x
+     * @param y
+     * @param turn
+     */
     public void botCentricDrive(double x, double y, double turn) {
         double adjX = deadzone(x, 0.05);
         double adjY = deadzone(y, 0.05);
@@ -88,6 +102,14 @@ public class MecanumDrive extends Drivetrain{
         normalizePowers(powers);
         runDrive(powers);
     }
+
+    /**
+     * field centric drive
+     * @param x
+     * @param y
+     * @param turn
+     * @param robotHeading
+     */
     public void fieldCentricDrive(double x, double y, double turn, double robotHeading) {
         double cos    = Math.cos(-robotHeading);
         double sin    = Math.sin(-robotHeading);
@@ -141,6 +163,7 @@ public class MecanumDrive extends Drivetrain{
     }
 
     /** Syncs live constants (useful with FTC Dashboard). */
+    //abstract overrides
     @Override
     public void setPower(DcMotorEx motor, double power) {
         motor.setPower(power);
@@ -175,6 +198,8 @@ public class MecanumDrive extends Drivetrain{
         rf.setZeroPowerBehavior(behavior);
         rr.setZeroPowerBehavior(behavior);
     }
+
+    //debuggig/tuning
     public void logMotors(Telemetry telemetry) {
         telemetry.addLine("---Power---");
 
