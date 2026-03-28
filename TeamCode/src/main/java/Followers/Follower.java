@@ -3,6 +3,11 @@ package Followers;
 import Util.Pose;
 import Util.Vector;
 
+/**
+ * Parent class for followers
+ * @author Xander Haemel 31616 404 Not Found
+ * @author Sohum Arora 22985 Paraducks
+ */
 public abstract class Follower {
     //declerations
     private boolean followerIsBusy;

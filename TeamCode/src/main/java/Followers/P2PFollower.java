@@ -8,6 +8,10 @@ import Localizers.PinpointLocalizer;
 import Util.Pose;
 import Util.Vector;
 
+/**
+ * Point to point follower using a pinpoint localizer for mecanum drive
+ * @author Sohum Arora 22985 Paraducks
+ */
 public class P2PFollower extends Follower{
 
     private final MecanumDrive drive;
