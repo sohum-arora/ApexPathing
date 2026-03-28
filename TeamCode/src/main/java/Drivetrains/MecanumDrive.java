@@ -159,6 +159,16 @@ public class MecanumDrive extends Drivetrain{
         if (useBrakeMode) setMotorsToBrake();
         else setMotorsToFloat();
     }
+    /**
+     * Initializes the drivetrain for teleop.
+     * Sets zero power behavior based on brakeMode flag.
+     * @param brakeMode true = BRAKE, false = FLOAT
+     */
+    public void startTeleopDrive(boolean brakeMode) {
+        this.useBrakeMode = brakeMode;
+        if (useBrakeMode) setMotorsToBrake();
+        else setMotorsToFloat();
+    }
     private void setMotorsToBrake() {
         setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
